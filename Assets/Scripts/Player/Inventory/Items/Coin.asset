@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34ee7c73f3e0ba4789ed3da133f1c65, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  itemName: Orb
-  description: A magic orb.
+  itemName: Coin
+  description: A gold coin.
   value: 50
-  sprite: {fileID: -3983950619504736678, guid: 74f8b4d56cb24724abef2f7c526fd9ca, type: 3}
+  sprite: {fileID: 21300000, guid: 601ee6102f54d41e9908ba8c8ade2173, type: 3}
   isStackable: 0
+  isConsumable: 0
+  colorEffect: {r: 0, g: 0, b: 0, a: 0}
