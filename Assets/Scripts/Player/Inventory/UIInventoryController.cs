@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInventoryController : MonoBehaviour
 {
@@ -26,9 +27,15 @@ public class UIInventoryController : MonoBehaviour
 
 		foreach(Item item in inventory.GetItemList())
 		{
+			// place item
 			RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
 			itemSlotRectTransform.gameObject.SetActive(true);
 			itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+
+			//update image
+			Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
+			image.sprite = item.GetSprite();
+
 			x++;
 
 			if (x > 3)

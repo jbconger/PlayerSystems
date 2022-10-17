@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	private Inventory playerInventory;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Awake()
+	{
+		playerInventory = new Inventory();
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		ItemPickUp itemPickUp = collision.GetComponent<ItemPickUp>();
+
+		if (itemPickUp != null)
+		{
+			playerInventory.AddItem(itemPickUp.GetItem());
+			itemPickUp.DestroySelf();
+		}
+	}
 }

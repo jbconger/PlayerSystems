@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34ee7c73f3e0ba4789ed3da133f1c65, type: 3}
   m_Name: Gem
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  value: 0
-  sprite: {fileID: 0}
-  isStackable: 0
+  itemName: Gem
+  description: A shining amethyst.
+  value: 5
+  sprite: {fileID: 21300000, guid: d1c1523651c71449cb32c2c7933acf8c, type: 3}
+  isStackable: 1
