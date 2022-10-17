@@ -10,16 +10,6 @@ public class OnClick : MonoBehaviour, IPointerClickHandler
 	public UnityEvent OnMiddleClick;
 	public UnityEvent OnRightClick;
 
-	//private void Awake()
-	//{
-	//	if (OnLeftClick == null)
-	//		OnLeftClick = new UnityEvent();
-	//	if (OnMiddleClick == null)
-	//		OnMiddleClick = new UnityEvent();
-	//	if (OnRightClick == null)
-	//		OnRightClick = new UnityEvent();
-	//}
-
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		if (eventData.button == PointerEventData.InputButton.Left)

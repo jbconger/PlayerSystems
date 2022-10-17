@@ -24,4 +24,6 @@ public class Item
 	public int GetItemValue() { return itemType.GetItemValue(); }
 	public Sprite GetSprite() { return itemType.GetSprite(); }
 	public bool GetStackable() { return itemType.GetStackable(); }
+	public bool GetConsumable() { return itemType.GetConsumable(); }
+	public Color GetColor() { return itemType.GetColor(); }
 }

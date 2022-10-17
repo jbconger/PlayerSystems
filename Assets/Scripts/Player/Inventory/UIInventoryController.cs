@@ -62,7 +62,7 @@ public class UIInventoryController : MonoBehaviour
 			itemSlotRectTransform.gameObject.SetActive(true);
 			itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
 
-			//itemSlotRectTransform.GetComponent<OnClick>().OnLeftClick.AddListener();
+			itemSlotRectTransform.GetComponent<OnClick>().OnLeftClick.AddListener( () => { playerInventory.UseItem(item); });
 			itemSlotRectTransform.GetComponent<OnClick>().OnRightClick.AddListener( () => { DropItem(playerInventory.gameObject.transform.position, item); });
 
 			//update image
