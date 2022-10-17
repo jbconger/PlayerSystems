@@ -35,6 +35,7 @@ public class ItemPickUp : MonoBehaviour
 	{
 		this.item = item;
 		spriteRenderer.sprite = item.GetSprite();
+		this.transform.Find("MinimapIcon").GetComponent<SpriteRenderer>().sprite = item.GetSprite();
 	}
 
 	public Item GetItem()
