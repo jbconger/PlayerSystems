@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelItemSetUp : MonoBehaviour
+public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] private List<ItemType> itemTypes;
     [SerializeField] private List<Vector3> itemSpawnLocations;

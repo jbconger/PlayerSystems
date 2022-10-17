@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UIInventoryController : MonoBehaviour
 {
+	public static UnityEvent OnItemListChanged;
+
+	[SerializeField] private PlayerInventory playerInventory;
+
 	private Inventory inventory;
 	private Transform itemSlotContainer;
 	private Transform itemSlotTemplate;
@@ -13,17 +18,36 @@ public class UIInventoryController : MonoBehaviour
 	{
 		itemSlotContainer = transform.Find("ItemSlotContainer");
 		itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
+
+		if (OnItemListChanged == null)
+			OnItemListChanged = new UnityEvent();
+	}
+
+	private void Start()
+	{
+		SetInventory(playerInventory.GetInventory());
 	}
 
 	public void SetInventory(Inventory inventory)
 	{
 		this.inventory = inventory;
+
+		OnItemListChanged.AddListener(RefreshInventoryItems);
+		RefreshInventoryItems();
 	}
 
 	private void RefreshInventoryItems()
 	{
+		// clear inventory
+		foreach (Transform child in itemSlotContainer)
+		{
+			if (child == itemSlotTemplate)
+				continue;
+			Destroy(child.gameObject);
+		}
+
 		int x = 0, y = 0;
-		float itemSlotCellSize = 40f;
+		float itemSlotCellSize = 60f;
 
 		foreach(Item item in inventory.GetItemList())
 		{

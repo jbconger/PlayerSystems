@@ -21,4 +21,9 @@ public class PlayerInventory : MonoBehaviour
 			itemPickUp.DestroySelf();
 		}
 	}
+
+	public Inventory GetInventory()
+	{
+		return playerInventory;
+	}
 }

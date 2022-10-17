@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Inventory
 {
+	
     private List<Item> itemList;
 
-    public Inventory()
+	public Inventory()
 	{
 		itemList = new List<Item>();
 	}
@@ -14,6 +16,7 @@ public class Inventory
 	public void AddItem(Item item)
 	{
 		itemList.Add(item);
+		UIInventoryController.OnItemListChanged.Invoke();
 	}
 
 	public List<Item> GetItemList()
