@@ -19,6 +19,12 @@ public class Inventory
 		UIInventoryController.OnItemListChanged.Invoke();
 	}
 
+	public void RemoveItem(Item item)
+	{
+		itemList.Remove(item);
+		UIInventoryController.OnItemListChanged.Invoke();
+	}
+
 	public List<Item> GetItemList()
 	{
 		return this.itemList;

@@ -26,4 +26,14 @@ public class PlayerInventory : MonoBehaviour
 	{
 		return playerInventory;
 	}
+
+	public void AddItem(Item item)
+	{
+		playerInventory.AddItem(item);
+	}
+
+	public void RemoveItem(Item item)
+	{
+		playerInventory.RemoveItem(item);
+	}
 }

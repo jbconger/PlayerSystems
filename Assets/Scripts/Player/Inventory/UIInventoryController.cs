@@ -36,6 +36,12 @@ public class UIInventoryController : MonoBehaviour
 		RefreshInventoryItems();
 	}
 
+	public void DropItem(Vector3 dropPosition, Item item)
+	{
+		playerInventory.RemoveItem(item);
+		ItemPickUp.DropItem(dropPosition, item);
+	}
+
 	private void RefreshInventoryItems()
 	{
 		// clear inventory
@@ -55,6 +61,9 @@ public class UIInventoryController : MonoBehaviour
 			RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
 			itemSlotRectTransform.gameObject.SetActive(true);
 			itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+
+			//itemSlotRectTransform.GetComponent<OnClick>().OnLeftClick.AddListener();
+			itemSlotRectTransform.GetComponent<OnClick>().OnRightClick.AddListener( () => { DropItem(playerInventory.gameObject.transform.position, item); });
 
 			//update image
 			Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();

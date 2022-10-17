@@ -14,6 +14,15 @@ public class ItemPickUp : MonoBehaviour
 		return itemPickUp;
 	}
 
+	public static ItemPickUp DropItem(Vector3 dropPosition, Item item)
+	{
+		Vector3 randomDirection = Random.insideUnitCircle.normalized;
+		ItemPickUp itemPickUp = SpawnItemPickUp(dropPosition + randomDirection * 1.5f, item);
+		itemPickUp.GetComponent<Rigidbody2D>().AddForce(randomDirection * 1.5f, ForceMode2D.Impulse);
+
+		return itemPickUp;
+	}
+
     private Item item;
 	private SpriteRenderer spriteRenderer;
 
